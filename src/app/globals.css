@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'GeistSans';
+  src: url('./fonts/GeistVF.woff') format('woff');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeistMono';
+  src: url('./fonts/GeistMonoVF.woff') format('woff');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --font-geist-sans: 'GeistSans', sans-serif;
+  --font-geist-mono: 'GeistMono', monospace;
+}
+
+body {
+  font-family: var(--font-geist-sans);
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -25,3 +48,99 @@ body {
     text-wrap: balance;
   }
 }
+
+.highlight-date {
+  background-color: green;
+  color: white;
+}
+
+/* Add more specific styles to override default ones */
+.custom-calendar .react-calendar {
+  border: none; /* Remove default border */
+}
+
+.custom-calendar .react-calendar__tile {
+  /* Your custom styles for tiles */
+  padding: 1rem;
+}
+
+.custom-calendar .react-calendar__month-view__weekdays {
+  /* Custom styles for weekdays */
+  font-size: 1rem;
+}
+
+.custom-calendar .react-calendar__month-view__days {
+  /* Custom styles for day cells */
+  font-size: 1rem;
+}
+
+/* Ensure calendar navigation is centered */
+.react-calendar__navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Center the month/year navigation */
+.react-calendar__navigation__label {
+  font-size: 1rem; /* Adjust size as needed */
+  font-weight: bold;
+  margin: 0 1rem; /* Adjust spacing as needed */
+}
+
+/* Increase the size of the navigation arrows */
+.react-calendar__navigation__prev,
+.react-calendar__navigation__next {
+  font-size: 1.5rem; /* Adjust size as needed */
+  width: 2rem; /* Adjust width as needed */
+  height: 2rem; /* Adjust height as needed */
+}
+
+/* Optional: Add spacing around navigation controls */
+.react-calendar__navigation__arrow {
+  margin: 0 0.5rem; /* Adjust spacing as needed */
+}
+
+/* Ensure proper alignment and spacing for weekdays and dates */
+.react-calendar__month-view__weekdays {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  flex: 1;
+  font-size: 1rem;
+}
+
+.react-calendar__month-view__days {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.react-calendar__month-view__days__day {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem;
+  box-sizing: border-box; /* Ensure padding and borders are included in the element’s width and height */
+}
+
+/* Optional: Adjust the width of day cells if needed */
+.react-calendar__month-view__days__day {
+  width: calc(100% / 7); /* 7 days a week */
+}
+
+/* Optional: Adjust the appearance of the day cells */
+.react-calendar__month-view__days__day {
+  border: 1px solid #ddd; /* Light border for clarity */
+  box-sizing: border-box;
+}
+
+.react-calendar__month-view__weekdays__weekday--saturday,
+.react-calendar__month-view__weekdays__weekday--sunday {
+  color: #000 !important; /* Default color or any other color you prefer */
+}
+
+
