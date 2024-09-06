@@ -1,10 +1,10 @@
 {
   "hosting": {
-    "public": ".next",
+    "public": "out",
     "rewrites": [
       {
         "source": "**",
-        "function": "nextApp"
+        "function": "index.html"
       }
     ]
   }

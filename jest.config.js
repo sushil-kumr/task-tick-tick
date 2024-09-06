@@ -1,14 +1,12 @@
 module.exports = {
-  transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': 'jest-transform-stub',
-  },
-  moduleNameMapper: {
-    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-    '\\.(jpg|jpeg|png|gif|webp|svg)$': '<rootDir>/__mocks__/fileMock.js',
-    '\\.(woff|woff2|eot|ttf|otf)$': '<rootDir>/__mocks__/fileMock.js',
-  },
-  transformIgnorePatterns: [
-    'node_modules/(?!some-esm-package|another-package)/',
-  ],
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-};
+  setupFilesAfterEnv: ['./jest.setup.js'],
+      testEnvironment: "jest-environment-jsdom",
+      transform: {
+      "^.+\\.jsx?$": "babel-jest", // Transforms JavaScript and JSX files using Babel
+      },
+      moduleNameMapper: {
+      "\\.(css|less|scss)$": "identity-obj-proxy", // Mock CSS imports
+      },testMatch: ['**/__tests__/**/*.test.js', '**/?(*.)+(spec|test).js'],
+      
+      moduleDirectories: ["node_modules", "src"], // Allow absolute imports from ‘src’
+  };
